@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root fx:id="rootPanel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="400.0" style="-fx-background-image: url('lifegame/Resources/bg.jpg'); -fx-background-repeat: stretch;" type="AnchorPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutX="14.0" layoutY="14.0" opacity="0.7" prefHeight="230.0" prefWidth="370.0" style="-fx-background-color: #000000; -fx-background-radius: 3px;">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="230.0" prefWidth="370.0">
+               <children>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="121.0" layoutY="12.0" text="General settings" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="Grid size :" textFill="WHITE" />
+                        <TextField fx:id="gridSizeField" layoutX="185.0" layoutY="10.0" prefHeight="31.0" prefWidth="170.0" promptText="10 to 1920" />
+                     </children>
+                  </Pane>
+                  <Pane fx:id="randRadioSlider" layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="Grains :" textFill="WHITE" />
+                        <Slider fx:id="randomRatioSld" layoutX="185.0" layoutY="17.0" majorTickUnit="20.0" max="80.0" min="20.0" minorTickCount="0" prefHeight="17.0" prefWidth="170.0" showTickLabels="true" snapToTicks="true" value="40.0" visible="false">
+                           <tooltip>
+                              <Tooltip autoHide="true" opacity="0.8" text="A random grain generation count ratio. For example, 20 means thath 20% of table is covered with true state." />
+                           </tooltip>
+                        </Slider>
+                        <TextField fx:id="randomRatioGrainField" layoutX="185.0" layoutY="10.0" prefHeight="31.0" prefWidth="170.0" promptText="1 to grid size" />
+                     </children>
+                  </Pane>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="grainPanel" layoutX="14.0" layoutY="286.0" opacity="0.7" prefHeight="330.0" prefWidth="370.0" style="-fx-background-color: #000000; -fx-background-radius: 3px;">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="320.0" prefWidth="370.0">
+               <children>
+                  <Pane fx:id="lifeGamePanel11" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="100.0" layoutY="12.0" text="Grain growth settings" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Pane prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="Neighborhood :" textFill="WHITE" />
+                        <ChoiceBox fx:id="neightChoice" layoutX="185.0" layoutY="10.0" prefHeight="31.0" prefWidth="170.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="Generation type :" textFill="WHITE" />
+                        <ChoiceBox fx:id="grainChoice" layoutX="185.0" layoutY="10.0" prefHeight="31.0" prefWidth="170.0" />
+                     </children>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="60.0" prefHeight="50.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="11.0" text="Probability (last rule) :" textFill="WHITE" />
+                        <TextField fx:id="probabilityField" disable="true" layoutX="185.0" layoutY="6.0" prefHeight="31.0" prefWidth="170.0" promptText="0 to 100" />
+                     </children>
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Pane layoutX="10.0" layoutY="60.0" prefHeight="76.0" prefWidth="300.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="Border coditions :" textFill="WHITE" />
+                        <RadioButton fx:id="grain_perRadio" layoutX="185.0" layoutY="14.0" mnemonicParsing="false" selected="true" text="Periodical" textFill="#8d8d8d">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="bcRadioGroup11" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="grain_zeroSrcRadio" layoutX="185.0" layoutY="41.0" mnemonicParsing="false" text="0 surround" textFill="#8d8d8d" toggleGroup="$bcRadioGroup11">
+                           <font>
+                              <Font name="System Italic" size="15.0" />
+                           </font>
+                        </RadioButton>
+                     </children>
+                  </Pane>                                  
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane layoutX="15.0" layoutY="632.0" prefHeight="50.0" prefWidth="370.0">
+         <children>
+            <Button fx:id="runButton" alignment="CENTER" layoutX="114.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#onRunButtonClicked" style="-fx-background-color: linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%), linear-gradient(#020b02, #3a3a3a), linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%), linear-gradient(#8a8a8a 0%, #6b6a6b 20%, #343534 80%, #262626 100%), linear-gradient(#777777 0%, #606060 50%, #505250 51%, #2a2b2a 100%);" text="Run simulation" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></Pane>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </opaqueInsets> 
+</fx:root>
